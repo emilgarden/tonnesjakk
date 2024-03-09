@@ -1,0 +1,41 @@
+
+# Prosjektplan for Tønnesjakk med AI
+
+## Målsetting
+Hovedmålet med dette prosjektet er å utforske og lære om reinforced learning gjennom utviklingen av et brettspill i Python, med spesiell fokus på implementasjon av en AI-agent som kan spille spillet. Ved å simulere spill mellom AI-agenter, ønsker vi å utvikle og identifisere optimale spillstrategier.
+
+## Fasebasert Utviklingsplan
+
+### Fase 1: Spillutvikling
+- Mål: Utvikle en grunnleggende versjon av Tønnesjakk i Python som inkluderer spilllogikk og regler uten AI.
+- Verktøy: Python.
+- Output: En spillbar versjon av Tønnesjakk for to spillere uten AI.
+
+### Fase 2: Implementasjon av Enkel AI-Agent
+- Mål: Implementere en enkel AI-agent som bruker basic reinforced learning.
+- Verktøy: TensorFlow eller PyTorch, OpenAI Gym for eksperimentelle formål.
+- Output: En funksjonell AI-agent som kan spille Tønnesjakk mot menneskelige spillere.
+
+### Fase 3: Forbedring og Optimalisering av AI-Agenten
+- Mål: Forbedre AI-agenten gjennom iterasjoner ved å finjustere modellen og lære av tidligere spill.
+- Verktøy: TensorFlow eller PyTorch for forbedret modellutvikling.
+- Output: En avansert AI-agent kapabel til å utføre komplekse strategier.
+
+### Fase 4: GUI Utvikling
+- Mål: Utvikle et enkelt, men funksjonelt GUI for Tønnesjakk for å forbedre brukeropplevelsen.
+- Verktøy: Tkinter for enkel GUI-utvikling eller Kivy for en mer avansert GUI.
+- Output: En visuell og interaktiv versjon av Tønnesjakk.
+
+### Fase 5: Optimalisering, Testing og Analyse
+- Mål: Optimalisere spillmotoren og AI-agenten, kjøre omfattende tester og analysere spilldata for å forbedre ytelsen.
+- Verktøy: SQLite for lagring av spillhistorikk, Pandas for dataanalyse, Matplotlib/Seaborn for visualisering.
+- Output: En optimalisert versjon av Tønnesjakk med innsikt i AI-strategier og ytelse.
+
+## Ytterligere Forslag
+- Prototyping: Prioriter rask prototyping for å identifisere og løse problemer tidlig i utviklingsprosessen.
+- Modulær Kode: Utvikle koden i moduler for enkel iterasjon og testing av ulike komponenter.
+- Versjonskontroll: Implementer Git fra begynnelsen for effektiv versjonskontroll og dokumentasjon.
+- Dokumentasjon: Hold detaljert dokumentasjon av utviklingsprosessen, beslutninger, og lærdommer for fremtidig referanse.
+
+## Avsluttende Notater
+Denne prosjektplanen legger grunnlaget for en strukturert tilnærming til å utforske reinforced learning gjennom spillutvikling. Ved å følge en fasebasert utviklingsplan, bruk av riktige verktøy og teknologier, og ved å prioritere modulær kode og dokumentasjon, kan dette prosjektet ikke bare føre til et funksjonelt og underholdende spill, men også til verdifull innsikt i anvendelsen av AI i spill.

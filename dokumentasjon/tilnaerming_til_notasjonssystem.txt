@@ -1,0 +1,31 @@
+
+# Tilnærming til Notasjonssystem for Tønnesjakk
+
+## Formål
+Implementere et notasjonssystem for å lagre tidligere spillpartier av Tønnesjakk. Dette systemet vil tillate analyse av spillstrategier og AI-agentens læring og forbedring over tid.
+
+## Når Implementere Notasjonssystemet?
+- Etter Fase 1: Når en grunnleggende versjon av spillet er utviklet.
+- Før Fase 2: Før utvikling av AI-agenten starter, for å samle inn spilldata som kan brukes for trening.
+
+## Implementering
+
+### Design av Datastruktur
+Data som bør lagres inkluderer:
+- Spillernavn eller identifikatorer
+- Trekksekvens med start- og sluttposisjon for hver bevegelse
+- Plasseringer av spesielle brikker som melkespann
+- Resultatet av spillet
+
+### Valg av Lagringsformat
+- Tekstbasert Format (som JSON eller CSV): For mindre datasett og enklere analyser.
+- Databasesystem (som SQLite): For større datamengder og mer komplekse spørringer.
+
+### Integrering i Spillkoden
+- Funksjoner for å logge spillinformasjon bør integreres i spillkoden.
+- Automatiser datainnsamlingen for å ikke påvirke spillopplevelsen.
+
+### Analyseverktøy
+- Python-biblioteker som Pandas for datahåndtering og analyse, samt Matplotlib eller Seaborn for visualisering, vil være nyttige for å analysere de innsamlede dataene.
+
+Implementeringen av et notasjonssystem tidlig i utviklingsprosessen vil gi verdifulle data som kan brukes for å forbedre AI-agenten og forståelsen av spillet.
