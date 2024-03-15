@@ -3,9 +3,9 @@
 
 **Brettet:** Tønnesjakk spilles på et brett delt inn i 6x6 ruter, likt et sjakkbrett.
 
-**Brikker:** Hver spiller starter med fire tønner og ett melkespann. Brikkene starter utenfor spillbrettet.
+**Brikker:** Hver spiller starter med fire tønner og ett melkespann. Brikkene starter utenfor spillbrettet og man må plasseres på første rad før de kan flyttes videre.
 
-**Mål:** Målet med spillet er å være den første til å flytte alle sine tønner over til den motsatte siden av brettet.
+**Mål:** Målet med spillet er å være den første til å fjerne alle sine tønner fra brettet ved å flytte de ut av brettet på motsatt side. 
 
 ## Spillmekanikk:
 
@@ -15,14 +15,14 @@
 
 ### Melkespann:
 - Hver spiller har ett melkespann som kan plasseres på hvilken som helst ledig rute på brettet, men kun én gang i løpet av spillet.
-- Melkespannet brukes for å blokkere motstanderens bevegelser. Det er ikke tillatt å hoppe over verken eget eller motstanderens melkespann.
+- Melkespannet brukes for å blokkere motstanderens bevegelser.
 - En spiller kan hoppe over sitt eget melkespann, men ikke motstanderens.
 
 ### Spilltur:
-- Spillerne bytter på å utføre trekk. Hvert trekk består av å flytte en tønne eller plassere ut melkespannet (når det er tillatt).
+- Spillerne bytter på å utføre trekk. Hvert trekk består av å flytte en tønne og eventuelt plassere ut melkespannet (når og hvor det er tillatt).
 
 ### Vinneregler:
-- Den første spilleren som får flyttet alle sine fire tønner over til den motsatte siden av brettet, vinner spillet.
+- Den første spilleren som fjerner alle sine tønner fra brettet ved å flytte de utenfor brettet på motsatt side
 
 ## Ytterligere Notater:
 - Spillet begynner med at spillere avtaler hvem som starter.

@@ -1,0 +1,12 @@
+
+1. Håndtering av Flere Hopp i Ett Trekk: Spillet tillater for øyeblikket ikke at en spiller utfører flere hopp i ett enkelt trekk. For å legge til denne funksjonaliteten, må koden utvides til å støtte sekvenser av hopp og sjekke gyldigheten for hvert hopp i sekvensen.
+
+2. Utførelse av Vinnertrekk: Det mangler spesifikk logikk for å håndtere trekk der en tønne beveger seg utenfor brettet, noe som er nødvendig for å vinne spillet. Dette inkluderer både å sjekke gyldigheten av slike trekk og å utføre dem på en måte som korrekt oppdaterer spillets tilstand til å reflektere en seier.
+
+3. Differensiering Mellom Spillerbrikker ved Bevegelse og Hopping: Selv om koden tillater hopping over tønner, tar den ikke hensyn til eierskapet til tønnen som hoppes over i noen kontekster. Det er viktig å kunne skille mellom egne og motstanderens tønner, spesielt i forhold til reglene om hopping over melkespann.
+
+4. Spesifikk Logikk for Melkespann: Spillet krever tydeligere regler for hvordan melkespann kan brukes, spesielt med tanke på at spillere kan hoppe over sitt eget melkespann, men ikke motstanderens. Den nåværende implementasjonen mangler detaljerte sjekker for disse situasjonene.
+
+5. Endelig Vinnerbekreftelse: Det trengs ytterligere logikk for å håndtere spillets avslutning når en vinner er bestemt, inkludert å bekrefte seieren basert på reglene om å fjerne alle tønner fra brettet og korrekt oppdatere spillets tilstand for å reflektere dette.
+
+6. Brukerinteraksjon for Komplekse Trekk: For å støtte funksjonaliteten for flere hopp i ett trekk, må brukergrensesnittet tillate spillere å planlegge og utføre disse komplekse trekkene, noe som krever ytterligere logikk både for inndatahåndtering og visuell tilbakemelding.

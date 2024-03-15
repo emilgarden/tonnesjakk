@@ -69,21 +69,30 @@ class Spillbrett:
         delta_rad = til_rad - fra_rad
         delta_kol = til_kol - fra_kol
 
-        # Sjekk at bevegelsen er gyldig (ett felt i hvilken som helst retning, eller hopping over en brikke)
+        # Sjekk for gyldig ett felt bevegelse
         if abs(delta_rad) > 1 or abs(delta_kol) > 1:
-            print("Du kan kun flytte en brikke ett felt om gangen, eller hoppe over en brikke.")
-            return False
+            # Sjekk for gyldig hopp
+            if abs(delta_rad) == 2 or abs(delta_kol) == 2:
+                midt_rad = fra_rad + delta_rad // 2
+                midt_kol = fra_kol + delta_kol // 2
+                # Tillat hopp over egne tønner eller eget melkespann
+                if self.spillbrett[midt_rad][midt_kol] == 0 or (midt_rad, midt_kol) == self.melkespann_posisjoner[spiller_id]:
+                    print("Ingen brikke å hoppe over.")
+                    return False
+            else:
+                print("Du kan kun flytte en brikke ett felt om gangen, eller hoppe over en brikke.")
+                return False
 
-        # Sjekk at målposisjonen er ledig (eller at det er et gyldig hopp)
-        if self.spillbrett[til_rad][til_kol] != 0 and (abs(delta_rad) != 1 or abs(delta_kol) != 1):
+        # Sjekk at målposisjonen er ledig (eller at det er et gyldig hopp over melkespann)
+        if self.spillbrett[til_rad][til_kol] != 0:
             print("Målposisjonen er opptatt.")
             return False
 
         # Utfør bevegelsen
         self.spillbrett[fra_rad][fra_kol] = 0
-        self.spillbrett[til_rad][til_kol] = 1  # Eller en annen representasjon av spillerens brikke
+        self.spillbrett[til_rad][til_kol] = 1  # Representasjon av spillerens brikke
         self.spiller_brikker[spiller_id][self.spiller_brikker[spiller_id].index((fra_rad, fra_kol))] = (til_rad, til_kol)
-        self.oppdater_spillbrett() # Oppdaterer spillbrettet
+        self.oppdater_spillbrett()  # Oppdaterer spillbrettet
 
         return True
 
@@ -118,7 +127,7 @@ class Spillbrett:
         return True
 
 
-    def sjekk_gyldig_trekk(self, fra_posisjon, til_posisjon):
+    def sjekk_gyldig_trekk(self, spiller_id, fra_posisjon, til_posisjon):
         fra_rad, fra_kol = fra_posisjon
         til_rad, til_kol = til_posisjon
 
@@ -128,30 +137,32 @@ class Spillbrett:
         if not (0 <= til_rad < self.brett_storrelse and 0 <= til_kol < self.brett_storrelse):
             return False, "Sluttposisjonen er utenfor brettet."
 
-        # Sjekk at målposisjonen ikke er opptatt av et melkespann
-        for spiller_id, posisjon in self.melkespann_posisjoner.items():
-            if posisjon == til_posisjon:
-                return False, "Målposisjonen er blokkert av et melkespann."
+        # Sjekk at målposisjonen ikke er opptatt av motstanderens melkespann
+        for motstander_id, posisjon in self.melkespann_posisjoner.items():
+            if motstander_id != spiller_id and posisjon == til_posisjon:
+                return False, "Målposisjonen er blokkert av motstanderens melkespann."
 
         # Beregn bevegelsesvektoren
         delta_rad = til_rad - fra_rad
         delta_kol = til_kol - fra_kol
 
         # Sjekk at bevegelsen er innenfor ett felt i alle retninger eller et gyldig hopp
-        if abs(delta_rad) > 1 or abs(delta_kol) > 1:
-            # For hopp, sjekk at det er over en annen brikke
-            if abs(delta_rad) != 2 and abs(delta_kol) != 2:
-                return False, "Ugyldig trekk, kan kun bevege ett felt eller hoppe over en brikke."
+        if abs(delta_rad) > 2 or abs(delta_kol) > 2 or (abs(delta_rad) == 2 and abs(delta_kol) == 2):
+            return False, "Ugyldig trekk, kan kun bevege ett felt eller hoppe over en brikke."
+
+        if abs(delta_rad) == 2 or abs(delta_kol) == 2:
             midt_rad = fra_rad + delta_rad // 2
             midt_kol = fra_kol + delta_kol // 2
-            if self.spillbrett[midt_rad][midt_kol] == 0:
-                return False, "Ingen brikke å hoppe over."
+            # Tillat hopp hvis det er en brikke eller eget melkespann mellom start og slutt
+            if not (self.spillbrett[midt_rad][midt_kol] != 0 or (midt_rad, midt_kol) == self.melkespann_posisjoner[spiller_id]):
+                return False, "Ingen gyldig brikke å hoppe over."
 
         # Sjekk at målposisjonen er ledig
         if self.spillbrett[til_rad][til_kol] != 0:
             return False, "Målposisjonen er allerede opptatt."
 
         return True, "Trekket er gyldig."
+
 
 
     def sjekk_vinner(self):
